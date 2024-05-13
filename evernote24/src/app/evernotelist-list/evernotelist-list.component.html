@@ -1,0 +1,13 @@
+<div class="ui middle aligned selection divided list">
+    @for (notelist of notelists; track notelist){
+        <a class="item">
+            @if(notelist.images && notelist.images.length > 0){
+                <img class="ui tiny image" [src]="notelist.images[0].url">
+            }
+            <div class="content">
+                <div class="header">{{notelist.title}}</div>
+                {{notelist.description}}
+            </div>
+        </a>
+    }
+</div>
