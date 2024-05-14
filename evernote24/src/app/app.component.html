@@ -1,7 +1,8 @@
-<style>
-</style>
-
 <main class="main">
-  <app-evernotelist-list></app-evernotelist-list>
+  @if (listOn) {
+    <app-evernotelist-list (showDetailsEvent)="showDetails($event)"></app-evernotelist-list>
+  }@else if (detailOn) {
+    <app-evernotelist-detail [notelist]="evernoteList" (showListEvent)="showEvernoteList()"></app-evernotelist-detail>
+  }
 </main>
 <router-outlet />

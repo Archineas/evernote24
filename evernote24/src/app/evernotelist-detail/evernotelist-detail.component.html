@@ -1,0 +1,49 @@
+<button (click)="showEvernoteList()" class="ui green button">Zurück zur Startseite</button>
+@if (notelist) {
+    <div class="ui grid">
+        <div class="four wide column">
+            @if (notelist.images && notelist.images[0]) {}
+            <img class="ui large image" [src]="notelist.images?.[0]?.url">
+        </div>
+        <div class="twelve wide column">
+            <div class="content">
+                <div class="ui header">ID: {{notelist.id}}</div>
+                <div class="ui header">Titel: {{notelist.title}}</div>
+                <div>{{notelist.description}}</div>
+                <div class="ui header">Erstellt von: {{notelist.users?.[0]?.name}}</div>
+
+                <div class="ui divider"></div>
+
+                <div class="ui grid">
+                    <div class="four wide column">
+                        <div class="ui header">Notizen:</div>
+                        <div class="ui list">
+                            @for (note of notelist.notes; track note;) {
+                                <!--Ziel: hier soll Komponente entstehen für Notes und dann einfach das note mitgeben-->
+                                <div class="app-note-detail" [note]="note"></div>
+                            }
+                        </div>
+                        <div class="ui divider"></div>
+                        <div class="ui header">Todos:</div>
+                        <div class="ui list">
+                            @for (todo of notelist.todos; track todo;) {
+                                <!--Ziel: hier soll Komponente entstehen für Todos und dann einfach das todo mitgeben-->
+                                <div class="app-todo-detail" [todo]="todo"></div>
+                            }
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+
+
+<!--
+
+            new Notelist(
+          [new User(1, 'User 1', 'password', 'user1@kwm.at')], 
+          [new Note(1, 'Note 1', 'Description 1')],
+          [new Todo(1, 'Todo 1', 'Description 1', new Date(2020, 1, 1))]),
+-->

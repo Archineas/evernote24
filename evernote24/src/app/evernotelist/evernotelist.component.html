@@ -1,0 +1,8 @@
+@if(notelist?.images && notelist?.images?.[0]){
+    <img class="ui tiny image" [src]="notelist?.images?.[0]?.url">
+}
+<div class="content">
+    <div class="header">{{notelist?.title}}</div>
+    {{notelist?.description}}
+</div>
+<!-- Die Komponente ist Child von Evernotelist-list und stellt das innere jeder Liste dar! Keine Detailansicht! -->
