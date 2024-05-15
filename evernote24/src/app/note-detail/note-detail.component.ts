@@ -3,6 +3,7 @@ import { Note } from '../shared/note';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NotesService } from '../shared/notes.service';
 import { NoteFactory } from '../shared/note-factory';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'div.app-note-detail',
@@ -17,7 +18,8 @@ export class NoteDetailComponent {
   constructor(
     private app: NotesService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -27,6 +29,7 @@ export class NoteDetailComponent {
     if (confirm('Willst du diese Notiz wirklich löschen?!')) {
        this.app.remove(this.note.id + '')
        .subscribe((res: any) => this.router.navigate(['../'], { relativeTo: this.route }));
+       this.toastr.success('Notiz wurde gelöscht!');
     }
   }
 }

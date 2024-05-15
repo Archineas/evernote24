@@ -3,6 +3,7 @@ import { Todo } from '../shared/todo';
 import { TodoFactory } from '../shared/todo-factory';
 import { TodosService } from '../shared/todos.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'div.app-todo-detail',
@@ -17,7 +18,8 @@ export class TodoDetailComponent {
     constructor(
       private app: TodosService,
       private route: ActivatedRoute,
-      private router: Router
+      private router: Router,
+      private toastr: ToastrService
     ) {}
   
     ngOnInit() {
@@ -28,6 +30,7 @@ export class TodoDetailComponent {
       if (confirm('Willst du dieses Todo wirklich löschen?!')) {
          this.app.remove(this.todo.id + '')
          .subscribe((res: any) => this.router.navigate(['../'], { relativeTo: this.route }));
+         this.toastr.success('Todo wurde gelöscht!');
       }
     }
 }

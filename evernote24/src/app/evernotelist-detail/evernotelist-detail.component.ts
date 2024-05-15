@@ -5,6 +5,7 @@ import { TodoDetailComponent } from '../todo-detail/todo-detail.component';
 import { ActivatedRoute, RouterLink, Router} from '@angular/router';
 import { EvernotelistsService } from '../shared/evernotelists.service';
 import { NotelistFactory } from '../shared/notelist-factory';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-evernotelist-detail',
@@ -20,7 +21,8 @@ export class EvernotelistDetailComponent implements OnInit {
   constructor(
     private app: EvernotelistsService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ){}
 
   ngOnInit() {
@@ -32,6 +34,7 @@ export class EvernotelistDetailComponent implements OnInit {
     if(confirm('Willst du diese Notelist wirklich löschen?!')){
       this.app.remove(this.notelist.id+'')
       .subscribe((res:any) => this.router.navigate(['../'], {relativeTo: this.route}));
+      this.toastr.success('Notelist wurde gelöscht!');
     }
   }
 
