@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Notelist } from '../shared/notelist';
 import { NoteDetailComponent } from '../note-detail/note-detail.component';
 import { TodoDetailComponent } from '../todo-detail/todo-detail.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink, Router} from '@angular/router';
 import { EvernotelistsService } from '../shared/evernotelists.service';
-import { RouterLink } from '@angular/router';
+import { NotelistFactory } from '../shared/notelist-factory';
 
 @Component({
   selector: 'app-evernotelist-detail',
@@ -15,17 +15,24 @@ import { RouterLink } from '@angular/router';
 })
 export class EvernotelistDetailComponent implements OnInit {
 
-  notelist: Notelist | undefined;
+  notelist: Notelist = NotelistFactory.empty();
 
   constructor(
     private app: EvernotelistsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ){}
 
   ngOnInit() {
     const params = this.route.snapshot.params;
-    this.notelist = this.app.getSingle(params['id']);
-    console.log(this.notelist); //ist undefined
+    this.app.getSingle(params['id']).subscribe((n:Notelist) => this.notelist = n);
+  }
+
+  removeNotelist(){
+    if(confirm('Willst du diese Notelist wirklich löschen?!')){
+      this.app.remove(this.notelist.id+'')
+      .subscribe((res:any) => this.router.navigate(['../'], {relativeTo: this.route}));
+    }
   }
 
 }

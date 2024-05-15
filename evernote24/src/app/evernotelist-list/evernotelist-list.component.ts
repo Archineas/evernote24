@@ -16,7 +16,7 @@ notelists: Notelist[] = [];
 
 constructor(private app: EvernotelistsService) {}
 
-ngOnInit() {
-  this.notelists = this.app.getAll();  
+ngOnInit() { 
+  this.app.getAll().subscribe(res => this.notelists = res);
 }
 }

@@ -2,4 +2,14 @@
     @for (notelist of notelists; track notelist){
         <a class="item" class="item app-evernotelist" [notelist]="notelist" [routerLink]="notelist.id+''"></a>
     }
+    @if (!notelists) {
+        <div class="ui active dimmer">
+            <div class="ui loader">
+                Ladevorgang...
+            </div>
+        </div>
+    }
+    @if(notelists && !notelists.length){
+        <div class="item">Keine Notelisten vorhanden.</div>
+    }
 </div>

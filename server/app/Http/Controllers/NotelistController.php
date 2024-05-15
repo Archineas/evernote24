@@ -27,6 +27,13 @@ class NotelistController extends Controller
         return response()->json($notelists, 200);
     }
 
+    public function findById(string $id):JsonResponse
+    {
+        $notelist = Notelist::where('id', $id)
+            ->with(['users','notes','todos','images'])->first();
+        return $notelist != null ? response()->json($notelist, 200) : response()->json(null, 200);
+    }
+
     public function saveNotelist(Request $request):JsonResponse
     {
         DB::beginTransaction();

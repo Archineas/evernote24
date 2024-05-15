@@ -13,6 +13,9 @@
                 <div class="ui header">Erstellt von: {{notelist.users?.[0]?.name}}</div>
 
                 <div class="ui divider"></div>
+                <!-- Hier sollen alle Buttons dann hin zum Löschen/Notes und Todos erstellen: -->
+                <button class="ui red button" (click)="removeNotelist()"><i class="remove icon"></i> Notelist löschen</button>
+                <div class="ui divider"></div>
 
                 <div class="ui grid">
                     <div class="four wide column">

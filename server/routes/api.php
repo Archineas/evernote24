@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 //Notelists
 Route::get('notelists', [\App\Http\Controllers\NotelistController::class,'index']);
-Route::get('notelists/search/{searchTerm}', [\App\Http\Controllers\NotelistController::class,'findBySearchTerm']);
+Route::get('notelists/search/{searchTerm}', [\App\Http\Controllers\NotelistController::class,'findBySearchTerm']); //nicht benutzt
+Route::get('notelists/{id}', [\App\Http\Controllers\NotelistController::class,'findById']);
 Route::post('notelists', [\App\Http\Controllers\NotelistController::class,'saveNotelist']);
 Route::put('notelists/{id}', [\App\Http\Controllers\NotelistController::class, 'update']);
 Route::delete('notelists/{id}', [\App\Http\Controllers\NotelistController::class, 'delete']);

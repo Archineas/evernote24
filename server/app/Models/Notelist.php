@@ -12,7 +12,7 @@ class Notelist extends Model
     use HasFactory;
 
     //hier müssen dann auch noch note_id und todo_id hinzugefügt werden!
-    protected $fillable = ['title', 'description', 'note_id']; //alles angeben, was gesetzt werden können soll - zB id, created_at nicht!
+    protected $fillable = ['title', 'description', 'note_id', 'todo_id']; //alles angeben, was gesetzt werden können soll - zB id, created_at nicht!
 
     //Namenskonvention mit dem "scope" - wird innerhalb von Abfragen benutzt
     public function scopeDescription($query)

@@ -1,3 +1,8 @@
-<div class="ui header">{{todo?.title}}</div>
-<div>{{todo?.description}}</div>
-<div>{{todo?.deadline}}</div>
+<div class="ui divider"></div>
+<div class="ui header">{{todo.title}}</div>
+<div>{{todo.description}}</div>
+<div>{{todo.deadline}}</div>
+
+<button class="ui red button" (click)="removeTodo()"><i class="remove icon"></i> Todo löschen</button>
+
+<div class="ui divider"></div>

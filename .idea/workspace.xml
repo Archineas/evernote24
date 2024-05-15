@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e62c5e72-8c3f-4bda-bc5d-ded12bdb05f3" name="Changes" comment="" />
+    <list default="true" id="e62c5e72-8c3f-4bda-bc5d-ded12bdb05f3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/evernotelist-detail/evernotelist-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/evernotelist-detail/evernotelist-detail.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/evernotelist-list/evernotelist-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/evernotelist-list/evernotelist-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/shared/evernotelists.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/shared/evernotelists.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/Http/Controllers/NotelistController.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/Http/Controllers/NotelistController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/Models/Notelist.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/Models/Notelist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -212,6 +221,7 @@
       <workItem from="1714639270308" duration="162000" />
       <workItem from="1715330649442" duration="25980000" />
       <workItem from="1715501842383" duration="4320000" />
+      <workItem from="1715802384859" duration="835000" />
     </task>
     <servers />
   </component>
