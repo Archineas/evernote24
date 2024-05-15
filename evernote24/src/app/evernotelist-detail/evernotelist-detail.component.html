@@ -1,4 +1,4 @@
-<button (click)="showEvernoteList()" class="ui green button">Zurück zur Startseite</button>
+<button [routerLink]="'/notelist'" class="ui green button">Zurück zur Startseite</button>
 @if (notelist) {
     <div class="ui grid">
         <div class="four wide column">

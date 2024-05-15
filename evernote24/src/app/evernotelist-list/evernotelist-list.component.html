@@ -1,5 +1,5 @@
 <div class="ui middle aligned selection divided list">
     @for (notelist of notelists; track notelist){
-        <a class="item" class="item app-evernotelist" [notelist]="notelist" (click)="showDetail(notelist)"></a>
+        <a class="item" class="item app-evernotelist" [notelist]="notelist" [routerLink]="notelist.id+''"></a>
     }
 </div>

@@ -1,8 +1,5 @@
-<main class="main">
-  @if (listOn) {
-    <app-evernotelist-list (showDetailsEvent)="showDetails($event)"></app-evernotelist-list>
-  }@else if (detailOn) {
-    <app-evernotelist-detail [notelist]="evernoteList" (showListEvent)="showEvernoteList()"></app-evernotelist-detail>
-  }
-</main>
+<div class="ui two item tabs menu">
+    <a routerLink="/home" routerLinkActive="active" class="item">Home</a>
+    <a routerLink="/notelist" routerLinkActive="active" class="item">Notelists</a>
+</div>
 <router-outlet />

@@ -31,4 +31,9 @@ export class EvernotelistsService {
   getAll(){
     return this.notelists;
   }
+
+  getSingle(id: string){
+    console.log("id: ", id, typeof id, this.notelists);
+    return <Notelist>this.notelists.find(notelist => notelist.id+'' === id);
+  }
 }
