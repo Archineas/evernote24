@@ -28,6 +28,16 @@ export class EvernotelistsService {
     .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 
+  create(notelist: Notelist) : Observable<any>{
+    return this.http.post(`${this.api}/notelists`, notelist)
+    .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
+  update(notelist: Notelist) : Observable<any>{
+    return this.http.put(`${this.api}/notelists/${notelist.id}`, notelist)
+    .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
   private errorHandler(error: Error | any): Observable<any> {
     return throwError(error);
   }

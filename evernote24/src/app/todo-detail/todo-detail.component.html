@@ -2,6 +2,9 @@
 <div class="ui header">{{todo.title}}</div>
 <div>{{todo.description}}</div>
 <div>{{todo.deadline}}</div>
+@for (tag of todo.evernotetags; track tag) {
+    <div class="ui teal tag label">{{tag.name}}</div>
+}
 
 <button class="ui red button" (click)="removeTodo()"><i class="remove icon"></i> Todo löschen</button>
 

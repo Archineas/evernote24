@@ -19,6 +19,6 @@ class Note extends Model
 
     public function evernotetags():BelongsToMany
     {
-        return $this->belongsToMany(Evernotetag::class);
+        return $this->belongsToMany(Evernotetag::class, 'evernotetag_note', 'note_id');
     }
 }

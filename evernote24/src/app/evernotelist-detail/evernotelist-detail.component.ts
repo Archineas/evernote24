@@ -27,7 +27,11 @@ export class EvernotelistDetailComponent implements OnInit {
 
   ngOnInit() {
     const params = this.route.snapshot.params;
-    this.app.getSingle(params['id']).subscribe((n:Notelist) => this.notelist = n);
+    this.app.getSingle(params['id']).subscribe((n:Notelist) => {
+      this.notelist = n;
+      console.log(this.notelist);
+    });
+
   }
 
   removeNotelist(){

@@ -15,6 +15,7 @@
                 <div class="ui divider"></div>
                 <!-- Hier sollen alle Buttons dann hin zum Löschen/Notes und Todos erstellen: -->
                 <button class="ui red button" (click)="removeNotelist()"><i class="remove icon"></i> Notelist löschen</button>
+                <a class="ui orange button" [routerLink]="['../../admin/notelist', notelist.id]"><i class="write icon"></i>Notelist bearbeiten</a>
                 <div class="ui divider"></div>
 
                 <div class="ui grid">

@@ -35,11 +35,11 @@ class Notelist extends Model
 
     public function notes():BelongsToMany
     {
-        return $this->belongsToMany(Note::class);
+        return $this->belongsToMany(Note::class)->with(['evernotetags']);
     }
 
     public function todos():BelongsToMany
     {
-        return $this->belongsToMany(Todo::class);
+        return $this->belongsToMany(Todo::class)->with(['evernotetags']);
     }
 }

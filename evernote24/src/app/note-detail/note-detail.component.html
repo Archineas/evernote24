@@ -1,6 +1,9 @@
 <div class="ui divider"></div>
 <div class="ui header">{{note.title}}</div>
 <div>{{note.description}}</div>
+@for (tag of note.evernotetags; track tag) {
+    <div class="ui teal tag label">{{tag.name}}</div>
+}
 
 <button class="ui red button" (click)="removeNote()"><i class="remove icon"></i> Note löschen</button>
 
