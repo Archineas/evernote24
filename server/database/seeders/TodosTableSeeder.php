@@ -16,13 +16,27 @@ class TodosTableSeeder extends Seeder
     public function run(): void
     {
         $todo = new Todo();
-        $todo->title = "Erstes Todo!";
-        $todo->description = "Die Beschreibung des ersten Todos!";
+        $todo->title = "Sport machen";
+        $todo->description = "Todo außerhalb der Listen...";
         $todo->save();
 
+        $todo2 = new Todo();
+        $todo2->title = "Für AUP lernen";
+        $todo2->description = "Zusammenfassen, lernen";
+        $todo2->save();
+
+        $todo3 = new Todo();
+        $todo3->title = "Wandern gehn";
+        $todo3->description = "Sehr lange";
+        $todo3->save();
+
         //add Tags
-        $tags = Evernotetag::all()->pluck('id');
-        $todo->evernotetags()->sync($tags);
+        $tag = Evernotetag::find(3);
+        $todo->evernotetags()->attach($tag);
         $todo->save();
+
+        $tag2 = Evernotetag::find(2);
+        $todo3->evernotetags()->attach($tag2);
+        $todo3->save();
     }
 }

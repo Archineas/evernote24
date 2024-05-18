@@ -8,15 +8,18 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evernote24/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/app.routes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evernote24/src/app/evernotelist-detail/evernotelist-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/evernotelist-detail/evernotelist-detail.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evernote24/src/app/evernotelist-detail/evernotelist-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/evernotelist-detail/evernotelist-detail.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evernote24/src/app/evernotelist-list/evernotelist-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/evernotelist-list/evernotelist-list.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evernote24/src/app/note-detail/note-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/note-detail/note-detail.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evernote24/src/app/shared/evernotelists.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/shared/evernotelists.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/note-detail/note-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/note-detail/note-detail.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evernote24/src/app/shared/note-factory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/shared/note-factory.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evernote24/src/app/shared/note.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/shared/note.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/app/Models/Note.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/Models/Note.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/app/Models/Notelist.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/Models/Notelist.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/app/Models/Todo.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/Models/Todo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/shared/notes.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/shared/notes.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/Http/Controllers/NoteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/Http/Controllers/NoteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/database/seeders/EvernotetagsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/database/seeders/EvernotetagsTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/database/seeders/NotelistsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/database/seeders/NotelistsTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/database/seeders/NotesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/database/seeders/NotesTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/database/seeders/TodosTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/database/seeders/TodosTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/database/seeders/UsersTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/database/seeders/UsersTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +230,7 @@
       <workItem from="1715501842383" duration="4320000" />
       <workItem from="1715802384859" duration="1434000" />
       <workItem from="1715931537276" duration="813000" />
-      <workItem from="1715974750842" duration="2678000" />
+      <workItem from="1715974750842" duration="12748000" />
     </task>
     <servers />
   </component>

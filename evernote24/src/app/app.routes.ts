@@ -3,6 +3,7 @@ import { EvernotelistListComponent } from './evernotelist-list/evernotelist-list
 import { EvernotelistDetailComponent } from './evernotelist-detail/evernotelist-detail.component';
 import { HomeComponent } from './home/home.component';
 import { NotelistFormComponent } from './notelist-form/notelist-form.component';
+import { NoteFormComponent } from './note-form/note-form.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -10,5 +11,7 @@ export const routes: Routes = [
     { path: 'notelist', component: EvernotelistListComponent },
     { path: 'notelist/:id', component: EvernotelistDetailComponent },
     { path: 'admin/notelist', component: NotelistFormComponent },
-    { path: 'admin/notelist/:id', component: NotelistFormComponent }
+    { path: 'admin/notelist/:id', component: NotelistFormComponent },
+    { path: 'admin/note', component: NoteFormComponent },
+    { path: 'admin/note/:id', component: NoteFormComponent }
 ];

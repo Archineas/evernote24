@@ -18,9 +18,5 @@ class UsersTableSeeder extends Seeder
         $user->name = "Rooobert";
         $user->email = "rooobert@gmail.com";
         $user->save();
-
-        $todos = Todo::all()->pluck('id');
-        $user->todos()->sync($todos);
-        $user->save();
     }
 }

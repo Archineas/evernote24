@@ -25,6 +25,7 @@ Route::delete('notelists/{id}', [\App\Http\Controllers\NotelistController::class
 
 //Notes
 Route::get('notes', [\App\Http\Controllers\NoteController::class,'index']);
+Route::get('notes/{id}', [\App\Http\Controllers\NoteController::class,'findById']);
 Route::post('notes', [\App\Http\Controllers\NoteController::class,'saveNote']);
 Route::put('notes/{id}', [\App\Http\Controllers\NoteController::class, 'update']);
 Route::delete('notes/{id}', [\App\Http\Controllers\NoteController::class, 'delete']);

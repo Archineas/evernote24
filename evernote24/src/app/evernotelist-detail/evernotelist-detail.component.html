@@ -2,8 +2,11 @@
 @if (notelist) {
     <div class="ui grid">
         <div class="four wide column">
-            @if (notelist.images && notelist.images[0]) {}
-            <img class="ui large image" [src]="notelist.images?.[0]?.url">
+            <!-- @if (notelist.images && notelist.images[0]) {}
+            <img class="ui large image" [src]="notelist.images?.[0]?.url"> -->
+            @for (image of notelist.images; track image;) {
+                <img class="ui large image" [src]="image.url">
+            }
         </div>
         <div class="twelve wide column">
             <div class="content">
@@ -16,6 +19,7 @@
                 <!-- Hier sollen alle Buttons dann hin zum Löschen/Notes und Todos erstellen: -->
                 <button class="ui red button" (click)="removeNotelist()"><i class="remove icon"></i> Notelist löschen</button>
                 <a class="ui orange button" [routerLink]="['../../admin/notelist', notelist.id]"><i class="write icon"></i>Notelist bearbeiten</a>
+                <a routerLink="/admin/note" routLinkActive="active" class="ui green button">Neue Note hinzufügen</a>
                 <div class="ui divider"></div>
 
                 <div class="ui grid">
@@ -41,13 +45,3 @@
     </div>
 </div>
 }
-
-
-
-<!--
-
-            new Notelist(
-          [new User(1, 'User 1', 'password', 'user1@kwm.at')], 
-          [new Note(1, 'Note 1', 'Description 1')],
-          [new Todo(1, 'Todo 1', 'Description 1', new Date(2020, 1, 1))]),
--->

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Note } from '../shared/note';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { NotesService } from '../shared/notes.service';
 import { NoteFactory } from '../shared/note-factory';
 import { ToastrService } from 'ngx-toastr';
@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'div.app-note-detail',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './note-detail.component.html',
   styles: ``
 })

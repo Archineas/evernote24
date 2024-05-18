@@ -20,25 +20,23 @@ class NotelistsTableSeeder extends Seeder
     public function run(): void
     {
         $notelist = new Notelist();
-        $notelist->title = 'Generierte Liste 1';
-        $notelist->description = 'erste im Seeder generierte Liste!';
-
+        $notelist->title = '1) FH Todo';
+        $notelist->description = 'HÜ und Lernliste';
         $notelist->save(); //in DB speichern
 
-        //
         $notelist2 = new Notelist();
-        $notelist2->title = 'Generierte Liste 2';
-        $notelist2->description = 'zweite im Seeder generierte Liste!';
+        $notelist2->title = '2) Einkaufen';
+        $notelist2->description = 'Lebensmittel usw.';
         $notelist2->save(); //in DB speichern
 
         $notelist3 = new Notelist();
-        $notelist3->title = 'Generierte Liste 3';
-        $notelist3->description = 'dritte im Seeder generierte Liste!';
+        $notelist3->title = '3) Filme';
+        $notelist3->description = 'Liste aller Filme, die ich noch gerne schaun würde';
         $notelist3->save(); //in DB speichern
 
         $notelist4 = new Notelist();
-        $notelist4->title = 'Generierte Liste 4';
-        $notelist4->description = 'vierte im Seeder generierte Liste!';
+        $notelist4->title = '4) Bücher';
+        $notelist4->description = 'Liste aller Lieblingsbücher';
         $notelist4->save(); //in DB speichern
 
 
@@ -59,11 +57,17 @@ class NotelistsTableSeeder extends Seeder
         $image4->url = 'https://picsum.photos/200';
         $image4->title ='Bild4';
 
-        $notelist->images()->saveMany([$image1,$image2]);
+        $notelist->images()->saveMany([$image1]);
         $notelist->save();
 
-        $notelist2->images()->saveMany([$image3,$image4]);
+        $notelist2->images()->saveMany([$image2]);
         $notelist2->save();
+
+        $notelist3->images()->saveMany([$image3]);
+        $notelist3->save();
+
+        $notelist4->images()->saveMany([$image4]);
+        $notelist4->save();
 
         //Add users
         $users = User::all()->pluck('id');
@@ -71,14 +75,30 @@ class NotelistsTableSeeder extends Seeder
         $notelist->save();
 
         //add Notes
-        $notes = Note::all()->pluck('id');
-        $notelist->notes()->sync($notes);
+        $note = Note::find(1);
+        $notelist->notes()->attach($note);
         $notelist->save();
 
+        $note2 = Note::find(2);
+        $notelist2->notes()->attach($note2);
+        $notelist2->save();
+
+        $note3 = Note::find(3);
+        $notelist3->notes()->attach($note3);
+        $notelist3->save();
+
+        $note4 = Note::find(4);
+        $notelist4->notes()->attach($note4);
+        $notelist4->save();
+
         //add Todos
-        $todos = Todo::all()->pluck('id');
-        $notelist->todos()->sync($todos);
+        $todos = Todo::find(2);
+        $notelist->todos()->attach($todos);
         $notelist->save();
+
+        $todos2 = Todo::find(3);
+        $notelist2->todos()->attach($todos2);
+        $notelist2->save();
 
     }
 }
