@@ -2,13 +2,13 @@ import { Component, Input } from '@angular/core';
 import { Todo } from '../shared/todo';
 import { TodoFactory } from '../shared/todo-factory';
 import { TodosService } from '../shared/todos.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'div.app-todo-detail',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './todo-detail.component.html',
   styleUrl: './todo-detail.component.css',
 })

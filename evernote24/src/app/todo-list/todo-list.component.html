@@ -1,3 +1,9 @@
 @for (todo of todos; track todo){ @if (!(todo.notelists.length > 0)) {
 <div class="app-todo-detail" [todo]="todo"></div>
 } }
+<a
+  [routerLink]="['/admin/todo']"
+  routLinkActive="active"
+  class="ui green button"
+  >Neues Todo erstellen</a
+>

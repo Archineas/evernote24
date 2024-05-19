@@ -28,7 +28,6 @@ export class NotesService {
   }
 
   create(note: Note): Observable<any> {
-    console.log(note);
     return this.http
       .post(`${this.api}/notes`, note, {
         headers: { Authorization: `Bearer ${sessionStorage.getItem('token')}` },

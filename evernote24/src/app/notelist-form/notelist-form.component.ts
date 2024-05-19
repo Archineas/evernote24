@@ -49,7 +49,6 @@ export class NotelistFormComponent {
     let users = [];
     let user = { id: userId };
     users.push(user);
-    console.log(users);
     this.notelistForm = this.fb.group({
       id: this.notelist.id,
       title: this.notelist.title,

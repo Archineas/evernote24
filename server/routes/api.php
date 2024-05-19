@@ -52,6 +52,7 @@ Route::get('notes/{id}', [\App\Http\Controllers\NoteController::class,'findById'
 
 //Todos
 Route::get('todos', [\App\Http\Controllers\TodoController::class,'index']);
+Route::get('todos/{id}', [\App\Http\Controllers\TodoController::class,'findById']);
 
 //Evernotetags
 Route::get('evernotetags', [\App\Http\Controllers\EvernotetagController::class,'index']);

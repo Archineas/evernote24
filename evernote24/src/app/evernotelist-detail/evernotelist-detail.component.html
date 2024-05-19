@@ -33,6 +33,13 @@
       >
         Neue Note hinzufügen
       </a>
+      <a
+        routerLink="/admin/todo"
+        [queryParams]="{ notelistId: notelist.id }"
+        routLinkActive="active"
+        class="ui green button"
+        >Neues Todo hinzufügen</a
+      >
 
       <div class="ui divider"></div>
 

@@ -75,7 +75,6 @@ export class NoteFormComponent implements OnInit {
       this.app.update(note).subscribe(() => {
         this.router.navigate(['/notelist']);
         this.toastr.success('Note wurde bearbeitet!');
-        console.log(note);
       });
     } else {
       this.app.create(note).subscribe(() => {

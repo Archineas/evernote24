@@ -11,6 +11,27 @@ export class TodosService {
 
   constructor(private http: HttpClient) {}
 
+  getSingle(id: string): Observable<Todo> {
+    return this.http
+      .get<Todo>(`${this.api}/todos/${id}`)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+
+  create(todo: Todo): Observable<any> {
+    return this.http
+      .post(`${this.api}/todos`, todo)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+
+  update(todo: Todo): Observable<any> {
+    return this.http
+      .put(`${this.api}/todos/${todo.id}`, todo)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+
   remove(id: string) {
     return this.http
       .delete(`${this.api}/todos/${id}`, {

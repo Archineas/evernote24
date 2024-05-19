@@ -1,17 +1,3 @@
-<!-- <div class="ui divider"></div>
-<div class="ui header">{{ todo.title }}</div>
-<div>{{ todo.description }}</div>
-<div>{{ todo.deadline }}</div>
-@for (tag of todo.evernotetags; track tag) {
-<div class="ui teal tag label">{{ tag.name }}</div>
-}
-
-<button class="ui red button" (click)="removeTodo()">
-  <i class="remove icon"></i> Todo löschen
-</button>
-
-<div class="ui divider"></div> -->
-
 <div class="ui container segment">
   <div class="ui divider"></div>
   <div class="ui header">
@@ -34,6 +20,9 @@
     <i class="remove icon"></i>
     Todo löschen
   </button>
+  <a class="ui orange button" [routerLink]="['/admin/todo', todo.id]"
+    ><i class="write icon"></i>Todo bearbeiten</a
+  >
 
   <div class="ui divider"></div>
 </div>

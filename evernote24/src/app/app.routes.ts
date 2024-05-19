@@ -6,6 +6,7 @@ import { NotelistFormComponent } from './notelist-form/notelist-form.component';
 import { NoteFormComponent } from './note-form/note-form.component';
 import { LoginComponent } from './login/login.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoFormComponent } from './todo-form/todo-form.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -17,5 +18,7 @@ export const routes: Routes = [
   { path: 'admin/notelist/:id', component: NotelistFormComponent },
   { path: 'admin/note', component: NoteFormComponent },
   { path: 'admin/note/:id', component: NoteFormComponent },
+  { path: 'admin/todo', component: TodoFormComponent },
+  { path: 'admin/todo/:id', component: TodoFormComponent },
   { path: 'login', component: LoginComponent },
 ];
