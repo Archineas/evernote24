@@ -70,9 +70,19 @@ class NotelistsTableSeeder extends Seeder
         $notelist4->save();
 
         //Add users
-        $users = User::all()->pluck('id');
-        $notelist->users()->sync($users);
+        $user = User::find(1);
+        $notelist->users()->attach($user);
         $notelist->save();
+
+        $notelist2->users()->attach($user);
+        $notelist2->save();
+
+        $user2 = User::find(2);
+        $notelist3->users()->attach($user2);
+        $notelist3->save();
+
+        $notelist4->users()->attach($user2);
+        $notelist4->save();
 
         //add Notes
         $note = Note::find(1);

@@ -36,18 +36,15 @@ class NotelistController extends Controller
 
     public function saveNotelist(Request $request):JsonResponse
     {
+        $curUser = auth()->user();
+
         DB::beginTransaction();
         try {
             $notelist = Notelist::create($request->all());
 
             //save user
-            if(isset($request['users']) && is_array($request['users'])){
-                foreach ($request['users'] as $usr){
-                    //$user = User::firstOrNew(['name'=>$usr['name'],'email'=>$usr['email']]);
-                    $user = User::firstOrNew(['id'=>$usr['id']]);
-                    $notelist->users()->save($user);
-                }
-            }
+            $user = User::firstOrNew(['id'=>$curUser->id]);
+            $notelist->users()->save($user);
 
             //save note
             if(isset($request['notes']) && is_array($request['notes'])){

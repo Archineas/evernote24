@@ -4,8 +4,6 @@
 @if (notelist) {
 <div class="ui grid">
   <div class="four wide column">
-    <!-- @if (notelist.images && notelist.images[0]) {}
-            <img class="ui large image" [src]="notelist.images?.[0]?.url"> -->
     @for (image of notelist.images; track image;) {
     <img class="ui large image" [src]="image.url" />
     }
@@ -28,11 +26,14 @@
         ><i class="write icon"></i>Notelist bearbeiten</a
       >
       <a
-        routerLink="/admin/note"
-        routLinkActive="active"
+        [routerLink]="'/admin/note'"
+        [queryParams]="{ notelistId: notelist.id }"
+        routerLinkActive="active"
         class="ui green button"
-        >Neue Note hinzufügen</a
       >
+        Neue Note hinzufügen
+      </a>
+
       <div class="ui divider"></div>
 
       <div class="ui grid">

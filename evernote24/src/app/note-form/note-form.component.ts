@@ -17,6 +17,7 @@ export class NoteFormComponent implements OnInit {
   noteForm: FormGroup;
   note = NoteFactory.empty();
   isUpdatingNote = false;
+  notelistId: string | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -30,12 +31,22 @@ export class NoteFormComponent implements OnInit {
       id: [''],
       title: [''],
       description: [''],
+      notelists: this.fb.array([]),
     });
   }
 
   ngOnInit() {
+    this.route.queryParams.subscribe((params) => {
+      this.notelistId = params['notelistId'];
+    });
+    if (this.notelistId !== null) {
+      this.noteForm.patchValue({ notelistId: this.notelistId });
+      this.initNote();
+    }
+
     const params = this.route.snapshot.params;
     if (params['id']) {
+      this.noteForm.patchValue({ notelistId: params['id'] });
       this.isUpdatingNote = true;
       this.app.getSingle(params['id']).subscribe((note) => {
         this.note = note;
@@ -44,18 +55,22 @@ export class NoteFormComponent implements OnInit {
     }
   }
 
-  //TODO: notelist id ausm formular irgendwie in die Note reinstopfen
   initNote() {
+    const notelists = { id: Number(this.notelistId) };
     this.noteForm = this.fb.group({
-      notelistId: this.note.notelists[0].id,
+      notelistId: this.notelistId,
       id: this.note.id,
       title: this.note.title,
       description: this.note.description,
+      notelists: notelists,
     });
   }
 
   submitForm() {
-    const note: Note = NoteFactory.fromObject(this.noteForm.value);
+    const note: Note = NoteFactory.fromObject({
+      ...this.noteForm.getRawValue(),
+      notelists: [this.noteForm.get('notelists')?.value],
+    });
     if (this.isUpdatingNote) {
       this.app.update(note).subscribe(() => {
         this.router.navigate(['/notelist']);

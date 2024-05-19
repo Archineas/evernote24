@@ -3,7 +3,8 @@
 <form class="ui large form" [formGroup]="noteForm" (ngSubmit)="submitForm()">
   <input type="hidden" formControlName="id" />
 
-  <div class="field" [class.disabled]="isUpdatingNote">
+  @if (!isUpdatingNote) {
+  <div class="field" [class.disabled]="!isUpdatingNote">
     <label for="notelistId">Notelist Id</label>
     <input
       type="text"
@@ -12,6 +13,7 @@
       placeholder="NotelistId"
     />
   </div>
+  }
 
   <div class="field">
     <label for="title">Titel</label>

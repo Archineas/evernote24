@@ -6,7 +6,7 @@ import { Notelist } from '../shared/notelist';
   standalone: true,
   imports: [],
   templateUrl: './evernotelist.component.html',
-  styles: ``
+  styles: ``,
 })
 export class EvernotelistComponent {
   @Input() notelist: Notelist | undefined;
