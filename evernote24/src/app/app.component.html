@@ -1,5 +1,10 @@
-<div class="ui two item tabs menu">
-    <a routerLink="/home" routerLinkActive="active" class="item">Home</a>
-    <a routerLink="/notelist" routerLinkActive="active" class="item">Notelists</a>
+<div class="ui three item tabs menu">
+  <a routerLink="/home" routerLinkActive="active" class="item">Home</a>
+  <a routerLink="/notelist" routerLinkActive="active" class="item">Notelists</a>
+  <a routerLink="login" routerLinkActive="active" class="item">{{
+    getLoginLabel()
+  }}</a>
 </div>
-<router-outlet />
+<div class="ui container">
+  <router-outlet></router-outlet>
+</div>

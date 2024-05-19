@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NoteFactory } from '../shared/note-factory';
 import { NotesService } from '../shared/notes.service';
@@ -11,9 +11,9 @@ import { ToastrService } from 'ngx-toastr';
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './note-form.component.html',
-  styles: ``
+  styles: ``,
 })
-export class NoteFormComponent {
+export class NoteFormComponent implements OnInit {
   noteForm: FormGroup;
   note = NoteFactory.empty();
   isUpdatingNote = false;
@@ -24,12 +24,12 @@ export class NoteFormComponent {
     private route: ActivatedRoute,
     private router: Router,
     private toastr: ToastrService
-  ) { 
+  ) {
     this.noteForm = this.fb.group({
       notelistId: [''],
       id: [''],
       title: [''],
-      description: ['']
+      description: [''],
     });
   }
 
@@ -37,7 +37,7 @@ export class NoteFormComponent {
     const params = this.route.snapshot.params;
     if (params['id']) {
       this.isUpdatingNote = true;
-      this.app.getSingle(params['id']).subscribe(note => {
+      this.app.getSingle(params['id']).subscribe((note) => {
         this.note = note;
         this.initNote();
       });
@@ -50,7 +50,7 @@ export class NoteFormComponent {
       notelistId: this.note.notelists[0].id,
       id: this.note.id,
       title: this.note.title,
-      description: this.note.description
+      description: this.note.description,
     });
   }
 

@@ -3,18 +3,20 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, Observable, retry, throwError } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TodosService {
-  
   private api = 'http://evernote24.s2110456009.student.kwmhgb.at/api';
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
-  remove(id: string){
-    return this.http.delete(`${this.api}/todos/${id}`)
-    .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  remove(id: string) {
+    return this.http
+      .delete(`${this.api}/todos/${id}`, {
+        headers: { Authorization: `Bearer ${sessionStorage.getItem('token')}` },
+      })
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
   }
 
   private errorHandler(error: Error | any): Observable<any> {
