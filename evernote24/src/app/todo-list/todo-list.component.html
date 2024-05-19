@@ -1,1 +1,3 @@
-<p>todo-list works!</p>
+@for (todo of todos; track todo){ @if (!(todo.notelists.length > 0)) {
+<div class="app-todo-detail" [todo]="todo"></div>
+} }

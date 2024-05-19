@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './notelist-form.component.html',
-  styles: ``
+  styles: ``,
 })
 export class NotelistFormComponent {
   notelistForm: FormGroup;
@@ -20,12 +20,13 @@ export class NotelistFormComponent {
   isUpdatingNotelist = false;
   images: FormArray;
 
-  constructor(    
+  constructor(
     private fb: FormBuilder,
     private app: EvernotelistsService,
     private route: ActivatedRoute,
     private router: Router,
-    private toastr: ToastrService) {
+    private toastr: ToastrService
+  ) {
     this.notelistForm = this.fb.group({});
     this.images = this.fb.array([]);
   }
@@ -34,7 +35,7 @@ export class NotelistFormComponent {
     const params = this.route.snapshot.params;
     if (params['id']) {
       this.isUpdatingNotelist = true;
-      this.app.getSingle(params['id']).subscribe(notelist => {
+      this.app.getSingle(params['id']).subscribe((notelist) => {
         this.notelist = notelist;
         this.initNotelist();
       });
@@ -44,12 +45,17 @@ export class NotelistFormComponent {
 
   initNotelist() {
     this.buildThumbnailsArray();
+    let userId = sessionStorage.getItem('userId');
+    let users = [];
+    let user = { id: userId };
+    users.push(user);
+    console.log(users);
     this.notelistForm = this.fb.group({
       id: this.notelist.id,
       title: this.notelist.title,
       description: this.notelist.description,
-      //user????
-      images: this.images
+      users: users,
+      images: this.images,
     });
   }
 
@@ -60,7 +66,7 @@ export class NotelistFormComponent {
         let fg = this.fb.group({
           id: new FormControl(image.id),
           url: new FormControl(image.url),
-          title: new FormControl(image.title)
+          title: new FormControl(image.title),
         });
         this.images.push(fg);
       }
@@ -73,26 +79,30 @@ export class NotelistFormComponent {
 
   submitForm() {
     //filter empty values
-    this.notelistForm.value.images = this.notelistForm.value.images.filter((thumbnail: { url: string; }) => thumbnail.url);
+    this.notelistForm.value.images = this.notelistForm.value.images.filter(
+      (thumbnail: { url: string }) => thumbnail.url
+    );
 
-    const notelist: Notelist = NotelistFactory.fromObject(this.notelistForm.value);
+    const notelist: Notelist = NotelistFactory.fromObject(
+      this.notelistForm.value
+    );
 
-    if(this.isUpdatingNotelist){
-      this.app.update(notelist).subscribe(res => {
-        this.router.navigate(['../../notelist', notelist.id], { relativeTo: this.route });
+    if (this.isUpdatingNotelist) {
+      this.app.update(notelist).subscribe((res) => {
+        this.router.navigate(['../../notelist', notelist.id], {
+          relativeTo: this.route,
+        });
         this.toastr.success('Notelist wurde bearbeitet!');
       });
     } else {
       //user hier zuweisen??? nach login dingsi halt
       notelist.users = [];
-      this.app.create(notelist).subscribe(res => {
+      this.app.create(notelist).subscribe((res) => {
         this.notelist = NotelistFactory.empty();
         this.notelistForm.reset(NotelistFactory.empty());
         this.router.navigate(['../notelist'], { relativeTo: this.route });
         this.toastr.success('Notelist wurde erstellt!');
       });
     }
-    
   }
-
 }

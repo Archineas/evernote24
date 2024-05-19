@@ -1,19 +1,22 @@
 <div class="ui middle aligned selection divided list">
-    @for (notelist of notelists; track notelist){
-        <a class="item" class="item app-evernotelist" [notelist]="notelist" [routerLink]="notelist.id+''"></a>
-    }
-    @if (!notelists) {
-        <div class="ui active dimmer">
-            <div class="ui loader">
-                Ladevorgang...
-            </div>
-        </div>
-    }
-    @if(notelists && !notelists.length){
-        <div class="item">Keine Notelisten vorhanden.</div>
-    }
-    <a routerLink="/admin/notelist" routLinkActive="active" class="ui green button">Neue Liste erstellen</a>
-
-    <div class="ui divider"></div>
-    <div class="app-todo-list"></div>
+  @for (notelist of notelists; track notelist){
+  <a
+    class="item"
+    class="item app-evernotelist"
+    [notelist]="notelist"
+    [routerLink]="notelist.id + ''"
+  ></a>
+  } @if (!notelists) {
+  <div class="ui active dimmer">
+    <div class="ui loader">Ladevorgang...</div>
+  </div>
+  } @if(notelists && !notelists.length){
+  <div class="item">Keine Notelisten vorhanden.</div>
+  }
+  <a
+    routerLink="/admin/notelist"
+    routLinkActive="active"
+    class="ui green button"
+    >Neue Liste erstellen</a
+  >
 </div>

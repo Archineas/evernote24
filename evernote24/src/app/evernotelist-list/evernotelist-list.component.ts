@@ -9,14 +9,14 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [EvernotelistComponent, RouterLink],
   templateUrl: './evernotelist-list.component.html',
-  styles: ``
+  styles: ``,
 })
 export class EvernotelistListComponent {
-notelists: Notelist[] = [];
+  notelists: Notelist[] = [];
 
-constructor(private app: EvernotelistsService) {}
+  constructor(private app: EvernotelistsService) {}
 
-ngOnInit() { 
-  this.app.getAll().subscribe(res => this.notelists = res);
-}
+  ngOnInit() {
+    this.app.getAll().subscribe((res) => (this.notelists = res));
+  }
 }

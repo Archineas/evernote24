@@ -10,27 +10,29 @@ import { ToastrService } from 'ngx-toastr';
   standalone: true,
   imports: [],
   templateUrl: './todo-detail.component.html',
-  styles: ``
+  styleUrl: './todo-detail.component.css',
 })
 export class TodoDetailComponent {
-@Input() todo: Todo = TodoFactory.empty();
-  
-    constructor(
-      private app: TodosService,
-      private route: ActivatedRoute,
-      private router: Router,
-      private toastr: ToastrService
-    ) {}
-  
-    ngOnInit() {
-    }
+  @Input() todo: Todo = TodoFactory.empty();
 
-    //leitet immer auf die Startseite um, wie bei Notiz löschen
-    removeTodo() {
-      if (confirm('Willst du dieses Todo wirklich löschen?!')) {
-         this.app.remove(this.todo.id + '')
-         .subscribe((res: any) => this.router.navigate(['../'], { relativeTo: this.route }));
-         this.toastr.success('Todo wurde gelöscht!');
-      }
+  constructor(
+    private app: TodosService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
+
+  ngOnInit() {}
+
+  //leitet immer auf die Startseite um, wie bei Notiz löschen
+  removeTodo() {
+    if (confirm('Willst du dieses Todo wirklich löschen?!')) {
+      this.app
+        .remove(this.todo.id + '')
+        .subscribe((res: any) =>
+          this.router.navigate(['../'], { relativeTo: this.route })
+        );
+      this.toastr.success('Todo wurde gelöscht!');
     }
+  }
 }

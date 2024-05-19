@@ -43,7 +43,8 @@ class NotelistController extends Controller
             //save user
             if(isset($request['users']) && is_array($request['users'])){
                 foreach ($request['users'] as $usr){
-                    $user = User::firstOrNew(['name'=>$usr['name'],'email'=>$usr['email']]);
+                    //$user = User::firstOrNew(['name'=>$usr['name'],'email'=>$usr['email']]);
+                    $user = User::firstOrNew(['id'=>$usr['id']]);
                     $notelist->users()->save($user);
                 }
             }

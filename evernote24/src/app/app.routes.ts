@@ -5,12 +5,14 @@ import { HomeComponent } from './home/home.component';
 import { NotelistFormComponent } from './notelist-form/notelist-form.component';
 import { NoteFormComponent } from './note-form/note-form.component';
 import { LoginComponent } from './login/login.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'notelist', component: EvernotelistListComponent },
   { path: 'notelist/:id', component: EvernotelistDetailComponent },
+  { path: 'todo', component: TodoListComponent },
   { path: 'admin/notelist', component: NotelistFormComponent },
   { path: 'admin/notelist/:id', component: NotelistFormComponent },
   { path: 'admin/note', component: NoteFormComponent },

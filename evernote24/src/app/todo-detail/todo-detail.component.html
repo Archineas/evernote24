@@ -1,11 +1,39 @@
-<div class="ui divider"></div>
-<div class="ui header">{{todo.title}}</div>
-<div>{{todo.description}}</div>
-<div>{{todo.deadline}}</div>
+<!-- <div class="ui divider"></div>
+<div class="ui header">{{ todo.title }}</div>
+<div>{{ todo.description }}</div>
+<div>{{ todo.deadline }}</div>
 @for (tag of todo.evernotetags; track tag) {
-    <div class="ui teal tag label">{{tag.name}}</div>
+<div class="ui teal tag label">{{ tag.name }}</div>
 }
 
-<button class="ui red button" (click)="removeTodo()"><i class="remove icon"></i> Todo löschen</button>
+<button class="ui red button" (click)="removeTodo()">
+  <i class="remove icon"></i> Todo löschen
+</button>
 
-<div class="ui divider"></div>
+<div class="ui divider"></div> -->
+
+<div class="ui container segment">
+  <div class="ui divider"></div>
+  <div class="ui header">
+    {{ todo.title }}
+  </div>
+  <div class="description">
+    {{ todo.description }}
+  </div>
+  <div class="deadline">
+    <i class="calendar icon"></i>
+    {{ todo.deadline }}
+  </div>
+  <div class="ui labels">
+    @for (tag of todo.evernotetags; track tag) {
+    <div class="ui teal tag label">{{ tag.name }}</div>
+    }
+  </div>
+
+  <button class="ui red button" (click)="removeTodo()">
+    <i class="remove icon"></i>
+    Todo löschen
+  </button>
+
+  <div class="ui divider"></div>
+</div>

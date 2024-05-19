@@ -1,40 +1,58 @@
 <h1>Notelist Formular</h1>
-<form class="ui large form" [formGroup]="notelistForm" (ngSubmit)="submitForm()">
-<input type="hidden" formControlName="id">
+<form
+  class="ui large form"
+  [formGroup]="notelistForm"
+  (ngSubmit)="submitForm()"
+>
+  <input type="hidden" formControlName="id" />
 
-<div class="field">
+  <div class="field">
     <label for="title">Titel</label>
-    <input type="text" id="title" formControlName="title" placeholder="Titel">
-</div>
+    <input type="text" id="title" formControlName="title" placeholder="Titel" />
+  </div>
 
-<div class="field">
+  <div class="field">
     <label for="description">Beschreibung</label>
-    <textarea id="description" formControlName="description" placeholder="Beschreibung"></textarea>
-</div>
+    <textarea
+      id="description"
+      formControlName="description"
+      placeholder="Beschreibung"
+    ></textarea>
+  </div>
 
-<div class="field">
+  <div class="field">
     <label for="images">Bilder</label>
     <div formArrayName="images" id="images">
-        @for (control of images.controls; let i = $index, l=$last; track control){
-            <div class="fields" [formGroupName]="i">
-                <input type="hidden" formControlName="id">
-                <div class="nine wide field">
-                    <input formControlName="url" type="text" placeholder="Bild URL">
-                </div>
-                <div class="six wide field">
-                    <input formControlName="title" type="text" placeholder="Bildtitel">
-                </div>
-                @if (l) {
-                    <div class="one wide field">
-                        <button (click)="addThumbnailControl()" class="ui large button" type="button">+</button>
-                    </div>
-                }
-            </div>
+      @for (control of images.controls; let i = $index, l=$last; track control){
+      <div class="fields" [formGroupName]="i">
+        <input type="hidden" formControlName="id" />
+        <div class="nine wide field">
+          <input formControlName="url" type="text" placeholder="Bild URL" />
+        </div>
+        <div class="six wide field">
+          <input formControlName="title" type="text" placeholder="Bildtitel" />
+        </div>
+        @if (l) {
+        <div class="one wide field">
+          <button
+            (click)="addThumbnailControl()"
+            class="ui large button"
+            type="button"
+          >
+            +
+          </button>
+        </div>
         }
+      </div>
+      }
     </div>
-        
-</div>
+  </div>
 
-<button class="ui large button" type="submit" [disabled]="notelistForm.invalid">Speichern</button>
-
+  <button
+    class="ui large button"
+    type="submit"
+    [disabled]="notelistForm.invalid"
+  >
+    Speichern
+  </button>
 </form>

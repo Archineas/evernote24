@@ -1,47 +1,63 @@
-<button [routerLink]="'/notelist'" class="ui green button">Zurück zur Startseite</button>
+<button [routerLink]="'/notelist'" class="ui green button">
+  Zurück zur Startseite
+</button>
 @if (notelist) {
-    <div class="ui grid">
-        <div class="four wide column">
-            <!-- @if (notelist.images && notelist.images[0]) {}
+<div class="ui grid">
+  <div class="four wide column">
+    <!-- @if (notelist.images && notelist.images[0]) {}
             <img class="ui large image" [src]="notelist.images?.[0]?.url"> -->
-            @for (image of notelist.images; track image;) {
-                <img class="ui large image" [src]="image.url">
+    @for (image of notelist.images; track image;) {
+    <img class="ui large image" [src]="image.url" />
+    }
+  </div>
+  <div class="twelve wide column">
+    <div class="content">
+      <div class="ui header">ID: {{ notelist.id }}</div>
+      <div class="ui header">Titel: {{ notelist.title }}</div>
+      <div>{{ notelist.description }}</div>
+      <div class="ui header">Erstellt von: {{notelist.users?.[0]?.name}}</div>
+
+      <div class="ui divider"></div>
+      <!-- Hier sollen alle Buttons dann hin zum Löschen/Notes und Todos erstellen: -->
+      <button class="ui red button" (click)="removeNotelist()">
+        <i class="remove icon"></i> Notelist löschen
+      </button>
+      <a
+        class="ui orange button"
+        [routerLink]="['../../admin/notelist', notelist.id]"
+        ><i class="write icon"></i>Notelist bearbeiten</a
+      >
+      <a
+        routerLink="/admin/note"
+        routLinkActive="active"
+        class="ui green button"
+        >Neue Note hinzufügen</a
+      >
+      <div class="ui divider"></div>
+
+      <div class="ui grid">
+        <div class="four wide column">
+          @if (notelist.notes && notelist.notes.length>0) {
+          <div class="ui header">Notizen:</div>
+          <div class="ui list">
+            @for (note of notelist.notes; track note;) {
+            <!--Ziel: hier soll Komponente entstehen für Notes und dann einfach das note mitgeben-->
+            <div class="app-note-detail" [note]="note"></div>
             }
+          </div>
+          <div class="ui divider"></div>
+          } @if (notelist.todos && notelist.todos.length>0) {
+          <div class="ui header">Todos:</div>
+          <div class="ui list">
+            @for (todo of notelist.todos; track todo;) {
+            <!--Ziel: hier soll Komponente entstehen für Todos und dann einfach das todo mitgeben-->
+            <div class="app-todo-detail" [todo]="todo"></div>
+            }
+          </div>
+          }
         </div>
-        <div class="twelve wide column">
-            <div class="content">
-                <div class="ui header">ID: {{notelist.id}}</div>
-                <div class="ui header">Titel: {{notelist.title}}</div>
-                <div>{{notelist.description}}</div>
-                <div class="ui header">Erstellt von: {{notelist.users?.[0]?.name}}</div>
-
-                <div class="ui divider"></div>
-                <!-- Hier sollen alle Buttons dann hin zum Löschen/Notes und Todos erstellen: -->
-                <button class="ui red button" (click)="removeNotelist()"><i class="remove icon"></i> Notelist löschen</button>
-                <a class="ui orange button" [routerLink]="['../../admin/notelist', notelist.id]"><i class="write icon"></i>Notelist bearbeiten</a>
-                <a routerLink="/admin/note" routLinkActive="active" class="ui green button">Neue Note hinzufügen</a>
-                <div class="ui divider"></div>
-
-                <div class="ui grid">
-                    <div class="four wide column">
-                        <div class="ui header">Notizen:</div>
-                        <div class="ui list">
-                            @for (note of notelist.notes; track note;) {
-                                <!--Ziel: hier soll Komponente entstehen für Notes und dann einfach das note mitgeben-->
-                                <div class="app-note-detail" [note]="note"></div>
-                            }
-                        </div>
-                        <div class="ui divider"></div>
-                        <div class="ui header">Todos:</div>
-                        <div class="ui list">
-                            @for (todo of notelist.todos; track todo;) {
-                                <!--Ziel: hier soll Komponente entstehen für Todos und dann einfach das todo mitgeben-->
-                                <div class="app-todo-detail" [todo]="todo"></div>
-                            }
-                        </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 </div>
 }

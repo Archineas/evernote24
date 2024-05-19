@@ -38,9 +38,7 @@ export class NotesService {
 
   update(note: Note): Observable<any> {
     return this.http
-      .put(`${this.api}/notes/${note.id}`, note, {
-        headers: { Authorization: `Bearer ${sessionStorage.getItem('token')}` },
-      })
+      .put(`${this.api}/notes/${note.id}`, note)
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
   }
