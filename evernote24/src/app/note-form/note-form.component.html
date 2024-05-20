@@ -1,0 +1,35 @@
+<h1>Noteformular</h1>
+
+<form class="ui large form" [formGroup]="noteForm" (ngSubmit)="submitForm()">
+  <input type="hidden" formControlName="id" />
+
+  @if (!isUpdatingNote) {
+  <div class="field" [class.disabled]="!isUpdatingNote">
+    <label for="notelistId">Notelist Id</label>
+    <input
+      type="text"
+      id="notelistId"
+      formControlName="notelistId"
+      placeholder="NotelistId"
+    />
+  </div>
+  }
+
+  <div class="field">
+    <label for="title">Titel</label>
+    <input type="text" id="title" formControlName="title" placeholder="Titel" />
+  </div>
+
+  <div class="field">
+    <label for="description">Beschreibung</label>
+    <textarea
+      id="description"
+      formControlName="description"
+      placeholder="Beschreibung"
+    ></textarea>
+  </div>
+
+  <button class="ui large button" type="submit" [disabled]="noteForm.invalid">
+    Speichern
+  </button>
+</form>

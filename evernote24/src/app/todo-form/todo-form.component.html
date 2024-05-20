@@ -1,0 +1,45 @@
+<h1>Todoformular</h1>
+
+<form class="ui large form" [formGroup]="todoForm" (ngSubmit)="submitForm()">
+  <input type="hidden" formControlName="id" />
+
+  @if (!isUpdatingTodo) {
+  <div class="field" [class.disabled]="!isUpdatingTodo">
+    <label for="notelistId">Notelist Id</label>
+    <input
+      type="text"
+      id="notelistId"
+      formControlName="notelistId"
+      placeholder="NotelistId"
+    />
+  </div>
+  }
+
+  <div class="field">
+    <label for="title">Titel</label>
+    <input type="text" id="title" formControlName="title" placeholder="Titel" />
+  </div>
+
+  <div class="field">
+    <label for="description">Beschreibung</label>
+    <textarea
+      id="description"
+      formControlName="description"
+      placeholder="Beschreibung"
+    ></textarea>
+  </div>
+
+  <div class="field">
+    <label for="deadline">Deadline</label>
+    <input
+      type="date"
+      id="deadline"
+      formControlName="deadline"
+      placeholder="Deadline"
+    />
+  </div>
+
+  <button class="ui large button" type="submit" [disabled]="todoForm.invalid">
+    Speichern
+  </button>
+</form>

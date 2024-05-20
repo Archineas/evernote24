@@ -14,11 +14,15 @@ class EvernotetagsTableSeeder extends Seeder
     public function run(): void
     {
         $evernotetag1 = new Evernotetag();
-        $evernotetag1->name = "mein erstes Evernotetag!";
+        $evernotetag1->name = "Hat noch Zeit";
         $evernotetag1->save();
 
         $evernotetag2 = new Evernotetag();
-        $evernotetag2->name = "mein zweites Evernotetag!";
+        $evernotetag2->name = "Dringend";
         $evernotetag2->save();
+
+        $evernotetag3 = new Evernotetag();
+        $evernotetag3->name = "Der Hut brennt";
+        $evernotetag3->save();
     }
 }

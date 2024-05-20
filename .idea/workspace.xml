@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e62c5e72-8c3f-4bda-bc5d-ded12bdb05f3" name="Changes" comment="" />
+    <list default="true" id="e62c5e72-8c3f-4bda-bc5d-ded12bdb05f3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/evernotelist-detail/evernotelist-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/evernotelist-detail/evernotelist-detail.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/evernotelist-detail/evernotelist-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/evernotelist-detail/evernotelist-detail.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/note-form/note-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/note-form/note-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/notelist-form/notelist-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/notelist-form/notelist-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/shared/authentication.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/shared/authentication.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/shared/notes.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/shared/notes.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/shared/todo-factory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/shared/todo-factory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/shared/todos.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/shared/todos.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/todo-detail/todo-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/todo-detail/todo-detail.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/todo-detail/todo-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/todo-detail/todo-detail.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/todo-list/todo-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/todo-list/todo-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernote24/src/app/todo-list/todo-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/evernote24/src/app/todo-list/todo-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/Http/Controllers/TodoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/Http/Controllers/TodoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -168,7 +189,8 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "web.server",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.gitlab.GitLabSettingsConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -211,7 +233,10 @@
       <workItem from="1714312080190" duration="19263000" />
       <workItem from="1714639270308" duration="162000" />
       <workItem from="1715330649442" duration="25980000" />
-      <workItem from="1715501842383" duration="3716000" />
+      <workItem from="1715501842383" duration="4320000" />
+      <workItem from="1715802384859" duration="1434000" />
+      <workItem from="1715931537276" duration="813000" />
+      <workItem from="1715974750842" duration="26636000" />
     </task>
     <servers />
   </component>

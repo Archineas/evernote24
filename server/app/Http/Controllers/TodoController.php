@@ -6,6 +6,7 @@ use App\Models\Evernotetag;
 use App\Models\Notelist;
 use App\Models\Todo;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,11 +21,24 @@ class TodoController extends Controller
         return response()->json($todos, 200);
     }
 
+    public function findById(string $id):JsonResponse
+    {
+        $todo = Todo::where('id', $id)
+            ->with(['users','evernotetags','notelists'])->first();
+        return $todo != null ? response()->json($todo, 200) : response()->json(null, 200);
+    }
+
     public function saveTodo(Request $request):JsonResponse
     {
         DB::beginTransaction();
         try {
-            $todo = Todo::create($request->all());
+            $deadline = Carbon::parse($request->deadline)->toDateTimeString();
+
+            $todo = Todo::create([
+                'title' => $request->title,
+                'description' => $request->description,
+                'deadline' => $deadline, // Formatiertes Datum einfügen
+            ]);
 
             //save user
             if(isset($request['users']) && is_array($request['users'])){
@@ -45,7 +59,7 @@ class TodoController extends Controller
             //save notelist
             if(isset($request['notelists']) && is_array($request['notelists'])){
                 foreach ($request['notelists'] as $ntlist){
-                    $notelist = Notelist::firstOrNew(['title'=>$ntlist['title'],'description'=>$ntlist['description']]);
+                    $notelist = Notelist::firstOrNew(['id'=>$ntlist['id']]);
                     $todo->notelists()->save($notelist);
                 }
             }
@@ -65,7 +79,13 @@ class TodoController extends Controller
         try {
             $todo = Todo::with(['users','evernotetags','notelists'])->where('id', $id)->first();
             if($todo!=null){
-                $todo->update($request->all());
+
+                $deadline = Carbon::parse($request->deadline)->toDateTimeString();
+                $todo->update([
+                    'title' => $request->title,
+                    'description' => $request->description,
+                    'deadline' => $deadline, // Formatiertes Datum einfügen
+                ]);
 
                 //update evernotetags
                 if(isset($request['evernotetags']) && is_array($request['evernotetags'])){
@@ -76,9 +96,6 @@ class TodoController extends Controller
                     $todo->evernotetags()->sync($tag_ids);
                     $todo->save();
                 }
-
-                //update users and notelists?? oder des über user und notelist dann machen, wie bei notes
-
             }
             DB::commit();
             $todoUpdated = Todo::with(['evernotetags'])->where('id', $id)->first();

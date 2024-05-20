@@ -14,13 +14,20 @@ class UsersTableSeeder extends Seeder
      */
     public function run(): void
     {
+        //test user standard
         $user = new User();
         $user->name = "Rooobert";
         $user->email = "rooobert@gmail.com";
+        $user->role = "user";
+        $user->password = bcrypt("robert");
         $user->save();
 
-        $todos = Todo::all()->pluck('id');
-        $user->todos()->sync($todos);
-        $user->save();
+        //admin user
+        $admin = new User();
+        $admin->name = "admin";
+        $admin->email = "admin@gmail.com";
+        $admin->role = "admin";
+        $admin->password = bcrypt("admin");
+        $admin->save();
     }
 }

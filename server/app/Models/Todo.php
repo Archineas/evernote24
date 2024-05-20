@@ -30,6 +30,6 @@ class Todo extends Model
 
     public function evernotetags():BelongsToMany
     {
-        return $this->belongsToMany(Evernotetag::class);
+        return $this->belongsToMany(Evernotetag::class, 'evernotetag_todo', 'todo_id');
     }
 }
