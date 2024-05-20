@@ -1,7 +1,13 @@
-<style>
-</style>
-
-<main class="main">
-  <app-evernotelist-list></app-evernotelist-list>
-</main>
-<router-outlet />
+<div class="ui {{ isLoggedIn() ? 'four' : 'two' }} item tabs menu">
+  <a routerLink="/home" routerLinkActive="active" class="item">Home</a>
+  @if(isLoggedIn()){
+  <a routerLink="/notelist" routerLinkActive="active" class="item">Notelists</a>
+  <a routerLink="/todo" routerLinkActive="active" class="item">Todos</a>
+  }
+  <a routerLink="login" routerLinkActive="active" class="item">{{
+    getLoginLabel()
+  }}</a>
+</div>
+<div class="ui container">
+  <router-outlet></router-outlet>
+</div>

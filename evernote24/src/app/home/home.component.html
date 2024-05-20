@@ -1,0 +1,9 @@
+<div class="ui container">
+  <h1>Home</h1>
+  <p>Willkommen bei KWM Evernote!!!</p>
+  @if(isLoggedIn){
+  <a routerLink="../notelist" class="ui green button">Notelisten ansehen</a>
+  }@else {
+  <a routerLink="../login" class="ui green button">Login</a>
+  }
+</div>

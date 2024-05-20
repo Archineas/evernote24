@@ -1,13 +1,22 @@
 <div class="ui middle aligned selection divided list">
-    @for (notelist of notelists; track notelist){
-        <a class="item">
-            @if(notelist.images && notelist.images.length > 0){
-                <img class="ui tiny image" [src]="notelist.images[0].url">
-            }
-            <div class="content">
-                <div class="header">{{notelist.title}}</div>
-                {{notelist.description}}
-            </div>
-        </a>
-    }
+  @for (notelist of notelists; track notelist){
+  <a
+    class="item"
+    class="item app-evernotelist"
+    [notelist]="notelist"
+    [routerLink]="notelist.id + ''"
+  ></a>
+  } @if (!notelists) {
+  <div class="ui active dimmer">
+    <div class="ui loader">Ladevorgang...</div>
+  </div>
+  } @if(notelists && !notelists.length){
+  <div class="item">Keine Notelisten vorhanden.</div>
+  }
+  <a
+    routerLink="/admin/notelist"
+    routLinkActive="active"
+    class="ui green button"
+    >Neue Liste erstellen</a
+  >
 </div>

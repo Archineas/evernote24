@@ -15,8 +15,15 @@ class NoteController extends Controller
     //Get all Notes
     public function index():JsonResponse
     {
-        $notes = Note::with(['evernotetags'])->get();
+        $notes = Note::with(['notelists','evernotetags'])->get();
         return response()->json($notes, 200);
+    }
+
+    public function findById(string $id):JsonResponse
+    {
+        $note = Note::where('id', $id)
+            ->with(['notelists','evernotetags'])->first();
+        return $note != null ? response()->json($note, 200) : response()->json(null, 200);
     }
 
     public function saveNote(Request $request):JsonResponse
@@ -28,7 +35,8 @@ class NoteController extends Controller
             //save notelist
             if(isset($request['notelists']) && is_array($request['notelists'])){
                 foreach ($request['notelists'] as $ntlist){
-                    $notelist = Notelist::firstOrNew(['title'=>$ntlist['title'],'description'=>$ntlist['description']]);
+                    //$notelist = Notelist::firstOrNew(['title'=>$ntlist['title'],'description'=>$ntlist['description']]);
+                    $notelist = Notelist::firstOrNew(['id'=>$ntlist['id']]);
                     $note->notelists()->save($notelist);
                 }
             }
