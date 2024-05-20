@@ -1,4 +1,6 @@
-<div class="ui {{ isLoggedIn() ? 'four' : 'two' }} item tabs menu">
+<div
+  class="ui {{ isLoggedIn() ? 'four' : 'two' }} item secondary pointing menu"
+>
   <a routerLink="/home" routerLinkActive="active" class="item">Home</a>
   @if(isLoggedIn()){
   <a routerLink="/notelist" routerLinkActive="active" class="item">Notelists</a>
